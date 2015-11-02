@@ -21,8 +21,6 @@ result.each do |k|
   }
 end
 
-p projects
-
 xmlstring = "<?xml version=\"1.0\"?>\n<items>\n"
 
 projects.each_with_index do |(k, v), i|
