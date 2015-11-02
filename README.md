@@ -7,7 +7,7 @@
 ## Setup
 
 1. Generate your CircleCI api token https://circleci.com/account/api
-1. Set your token file in `config.rb`
+1. Set your token in `config.rb`
 
 ![]( ./images/alfred-circleci-projects-workflow10.png)
 
