@@ -7,6 +7,7 @@
 ## Setup
 
 1. Download workflow https://github.com/glidenote/alfred-circleci-projects-workflow/releases/
+1. Install Workflow
 1. Generate your CircleCI api token https://circleci.com/account/api
 1. Set your token in `config.rb`
 
