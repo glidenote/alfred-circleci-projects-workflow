@@ -1,0 +1,52 @@
+require 'json'
+require 'uri'
+require 'net/http'
+load 'config.rb'
+
+thequery = ARGV[0]
+
+endpoint      = 'https://circleci.com/api/v1/projects?circle-token'
+uri           = URI.parse("#{endpoint}=#{@token}")
+https         = Net::HTTP.new(uri.host, uri.port)
+https.use_ssl = true
+req           = Net::HTTP::Get.new(uri.request_uri)
+req['Accept'] = 'application/json'
+res           = https.request(req)
+result        = JSON.parse(res.body)
+
+projects = {}
+
+result.each do |k|
+  repo = "#{k['username']}/#{k['reponame']}"
+  status = "#{k['branches']['master']['recent_builds'][0]['status']}"
+  projects["#{repo}"] = {
+    url:    "https://circleci.com/gh/#{repo}",
+    status: "#{status}"
+  }
+end
+
+# p projects
+
+xmlstring = "<?xml version=\"1.0\"?>\n<items>\n"
+
+projects.each_with_index do |(k, v), i|
+  if k.match(%r{[^\/]*#{thequery}[^\/]*$}i)
+    if v[:status] =~ /success|fixed/
+      icon = 'green.png'
+    else
+      icon = 'red.png'
+    end
+  thisxmlstring = "\t<item uid=\"#{i}\" autocomplete=\"#{k}\" arg=\"#{v[:url]}\" valid=\"YES\">
+    <title>#{k}</title>
+    <subtitle>#{v[:url]}</subtitle>
+    <icon>#{icon}</icon>
+    </item>\n"
+  xmlstring += thisxmlstring
+  else
+    next
+  end
+end
+
+xmlstring += '</items>'
+
+puts xmlstring
