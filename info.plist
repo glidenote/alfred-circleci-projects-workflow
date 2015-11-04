@@ -50,6 +50,17 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>B87B2176-C117-4A8A-9A1A-940FD6E1038E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>248FAD2D-FEC2-4AC5-A73B-D83244E35882</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Akira Maeda</string>
@@ -67,18 +78,18 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>ciu</string>
+				<string>cisettoken</string>
 				<key>subtext</key>
-				<string>Run this to fetch latest changes from your CircleCI account</string>
+				<string>Set CircleCI Token</string>
 				<key>text</key>
-				<string>Update CIrcleci Projects Cache</string>
+				<string>Set CircleCI Token</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>22875700-E997-4A54-AE20-41988AE2236F</string>
+			<string>B87B2176-C117-4A8A-9A1A-940FD6E1038E</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -88,16 +99,17 @@
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
-				<integer>0</integer>
+				<integer>102</integer>
 				<key>script</key>
-				<string>ruby update_cache.rb</string>
+				<string>open https://circleci.com/account/api
+open -a TextEdit config.rb</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>91FD599F-B5DB-4501-9F47-BAAEFF05C30B</string>
+			<string>248FAD2D-FEC2-4AC5-A73B-D83244E35882</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -123,6 +135,63 @@
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>382EDD9E-4221-4175-8B26-74215957B60B</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>ruby update_cache.rb</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>91FD599F-B5DB-4501-9F47-BAAEFF05C30B</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>ciu</string>
+				<key>subtext</key>
+				<string>Run this to fetch latest changes from your CircleCI account</string>
+				<key>text</key>
+				<string>Update CIrcleci Projects Cache</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>22875700-E997-4A54-AE20-41988AE2236F</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>B8B736F9-82D2-41BC-A0B2-6DC86FA58954</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -160,23 +229,6 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>2A751056-87B7-4408-90D6-B868021760CE</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>plusspaces</key>
-				<false/>
-				<key>url</key>
-				<string>{query}</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>B8B736F9-82D2-41BC-A0B2-6DC86FA58954</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -225,32 +277,42 @@
 		<key>22875700-E997-4A54-AE20-41988AE2236F</key>
 		<dict>
 			<key>ypos</key>
-			<real>30</real>
+			<real>170</real>
+		</dict>
+		<key>248FAD2D-FEC2-4AC5-A73B-D83244E35882</key>
+		<dict>
+			<key>ypos</key>
+			<real>50</real>
 		</dict>
 		<key>2A751056-87B7-4408-90D6-B868021760CE</key>
 		<dict>
 			<key>ypos</key>
-			<real>170</real>
+			<real>300</real>
 		</dict>
 		<key>382EDD9E-4221-4175-8B26-74215957B60B</key>
 		<dict>
 			<key>ypos</key>
-			<real>30</real>
+			<real>170</real>
 		</dict>
 		<key>57506429-6AEA-44A4-B4EF-9CF1EBBF4163</key>
 		<dict>
 			<key>ypos</key>
-			<real>310</real>
+			<real>420</real>
 		</dict>
 		<key>91FD599F-B5DB-4501-9F47-BAAEFF05C30B</key>
 		<dict>
 			<key>ypos</key>
-			<real>30</real>
+			<real>170</real>
+		</dict>
+		<key>B87B2176-C117-4A8A-9A1A-940FD6E1038E</key>
+		<dict>
+			<key>ypos</key>
+			<real>50</real>
 		</dict>
 		<key>B8B736F9-82D2-41BC-A0B2-6DC86FA58954</key>
 		<dict>
 			<key>ypos</key>
-			<real>310</real>
+			<real>300</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
