@@ -69,7 +69,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>CircleCI Projects Workflow</string>
+	<string>CircleCI Projects Workflow v1.2</string>
 	<key>objects</key>
 	<array>
 		<dict>
