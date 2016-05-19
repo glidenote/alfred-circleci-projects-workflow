@@ -17,15 +17,18 @@ result        = JSON.parse(res.body)
 projects = {}
 
 result.each do |k|
-  repo = "#{k['username']}/#{k['reponame']}"
-  status = "#{k['branches']['master']['recent_builds'][0]['status']}"
-  projects["#{repo}"] = {
-    url:    "https://circleci.com/gh/#{repo}",
-    status: "#{status}"
-  }
-end
 
-# p projects
+  branch = k['branches']['master'] ? 'master' : 'develop'
+  repo = "#{k['username']}/#{k['reponame']}"
+
+  if k['branches'][branch]
+    status = "#{k['branches'][branch]['recent_builds'][0]['status']}"
+    projects["#{repo}"] = {
+      url:    "https://circleci.com/gh/#{repo}",
+      status: "#{status}"
+    }
+  end
+end
 
 xmlstring = "<?xml version=\"1.0\"?>\n<items>\n"
 
