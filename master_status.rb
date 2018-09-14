@@ -1,12 +1,11 @@
 require 'json'
 require 'uri'
 require 'net/http'
-load 'config.rb'
 
 thequery = ARGV[0]
 
 endpoint      = 'https://circleci.com/api/v1/projects?circle-token'
-uri           = URI.parse("#{endpoint}=#{@token}")
+uri           = URI.parse("#{endpoint}=#{ENV['CIRCLECI_TOKEN']}")
 https         = Net::HTTP.new(uri.host, uri.port)
 https.use_ssl = true
 req           = Net::HTTP::Get.new(uri.request_uri)

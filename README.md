@@ -1,4 +1,4 @@
-# CircleCI Projects Workflow for Alfred 2
+# CircleCI Projects Workflow for Alfred 3
 
 
 ![]( ./images/alfred-circleci-projects-workflow00.png)
@@ -8,24 +8,15 @@
 
 1. Download and install workflow https://github.com/glidenote/alfred-circleci-projects-workflow/releases/
 
-### use `cisettoken` command
+### Setting Workflow Environment Variables
 
 1. Generate your CircleCI api token https://circleci.com/account/api
-1. `cisettoken`
-1. Set your token in `config.rb`
+1. Set your CircleCI token in `Workflow Environment Variables`
+1. `CIRCLECI_TOKEN`
 
-![](./images/setcitoken.png)
+![](./images/Alfred_Preferences0.png)
+![](./images/Alfred_Preferences1.png)
 
-### Manually
-
-1. Download workflow https://github.com/glidenote/alfred-circleci-projects-workflow/releases/
-1. Install Workflow
-1. Generate your CircleCI api token https://circleci.com/account/api
-1. Set your token in `config.rb`
-
-![](./images/alfred-circleci-projects-workflow10.png)
-
-![](./images/alfred-circleci-projects-workflow11.png)
 
 ## Commands
 
@@ -43,4 +34,8 @@ Open CircleCI Projects Page.
 Check master branch build status.
 `cis` command uses CircleCI api server.
 
+### ciw
+
+Open CircleCI Workflows Page.
+`ciw` command uses cache file `/var/tmp/circleci.json`
 
