@@ -39,3 +39,7 @@ Check master branch build status.
 Open CircleCI Workflows Page.
 `ciw` command uses cache file `/var/tmp/circleci.json`
 
+### cip
+
+Open CircleCI Pipelines Page.
+`cip` command uses cache file `/var/tmp/circleci.json`
