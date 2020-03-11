@@ -17,7 +17,7 @@ pipelines = {}
 result.each do |k|
   project_slug = "#{k['vcs_type']}/#{k['username']}/#{k['reponame']}"
   pipelines["#{project_slug}"] = {
-    url:    "https://app.circleci.com/#{project_slug}/pipelines"
+    url:    "https://app.circleci.com/pipelines/#{project_slug}"
   }
 end
 
