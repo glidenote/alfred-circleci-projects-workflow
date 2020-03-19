@@ -16,8 +16,11 @@ workflows = {}
 
 result.each do |k|
   repo = "#{k['username']}/workflows/#{k['reponame']}"
+
+  vcs = k['vcs_type'] == 'bitbucket' ? "bb" : "gh"
+
   workflows["#{repo}"] = {
-    url:    "https://circleci.com/gh/#{repo}"
+    url:    "https://circleci.com/#{vcs}/#{repo}"
   }
 end
 
