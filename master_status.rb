@@ -20,10 +20,12 @@ result.each do |k|
   branch = k['branches']['master'] ? 'master' : 'develop'
   repo = "#{k['username']}/#{k['reponame']}"
 
+  vcs = k['vcs_type'] == 'bitbucket' ? "bb" : "gh"
+
   if k['branches'][branch]
     status = "#{k['branches'][branch]['recent_builds'][0]['status']}"
     projects["#{repo}"] = {
-      url:    "https://circleci.com/gh/#{repo}",
+      url:    "https://circleci.com/#{vcs}/#{repo}",
       status: "#{status}"
     }
   end

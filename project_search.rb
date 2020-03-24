@@ -16,8 +16,11 @@ projects = {}
 
 result.each do |k|
   repo = "#{k['username']}/#{k['reponame']}"
+
+  vcs = k['vcs_type'] == 'bitbucket' ? "bb" : "gh"
+
   projects["#{repo}"] = {
-    url:    "https://circleci.com/gh/#{repo}"
+    url:    "https://circleci.com/#{vcs}/#{repo}"
   }
 end
 
