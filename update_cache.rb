@@ -12,7 +12,7 @@ res           = https.request(req)
 
 if res.code == '200'
   File.write('/var/tmp/circleci.json', res.body)
-  puts 'Success. Update CIrcleci Project URLs Cache.'
+  puts 'Success. Updated CircleCI Project URLs Cache.'
 else
   puts "#{res.message}"
 end
