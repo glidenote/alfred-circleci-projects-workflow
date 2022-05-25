@@ -1,4 +1,4 @@
-# CircleCI Projects Workflow for Alfred 3
+# CircleCI Projects Workflow for Alfred v3/v4
 
 
 ![]( ./images/alfred-circleci-projects-workflow00.png)
